@@ -4,7 +4,7 @@ import Google from "next-auth/providers/google"
 import { firebaseCert } from "./firebase"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google],
+  providers: [Google({ allowDangerousEmailAccountLinking: true })],
   adapter: FirestoreAdapter({
     credential: firebaseCert,
   }),
